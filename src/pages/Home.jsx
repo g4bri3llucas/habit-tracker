@@ -1,5 +1,6 @@
 import { useHabits } from "../context/HabitContext";
 import HabitCard from "../components/HabitCard";
+import ProgressBar from "../components/ProgressBar";
 
 export default function Home({ onAddHabit }) {
   const { habits } = useHabits();
@@ -22,12 +23,8 @@ export default function Home({ onAddHabit }) {
         </button>
       </div>
 
-      {/* Resumo do dia */}
-      {habits.length > 0 && (
-        <p className="text-sm text-gray-500 mb-4">
-          ✅ {completed} de {habits.length} hábitos concluídos hoje
-        </p>
-      )}
+      {/* Barra de progresso */}
+      <ProgressBar completed={completed} total={habits.length} />
 
       {/* Lista de hábitos */}
       <div className="flex flex-col gap-3">
